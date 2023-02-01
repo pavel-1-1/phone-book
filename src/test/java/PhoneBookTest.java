@@ -3,8 +3,6 @@ import org.example.PhoneBook;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Map;
-
 import static org.junit.Assert.*;
 
 public class PhoneBookTest {
@@ -18,11 +16,8 @@ public class PhoneBookTest {
 
     @Test
     public void Add() {
-
         boolean actual = bookTest.add("pavel", 2323);
-
         assertFalse(actual);
-
     }
 
     @Test

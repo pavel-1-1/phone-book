@@ -15,12 +15,13 @@ public class PhoneBook {
             names.add(name);
             numbers.add(number);
         }
-        System.out.println(names.size());
         return true;
     }
 
     public String findByNumber(int number) {
-
+        if (numbers.contains(number)) {
+            return names.get(numbers.indexOf(number));
+        }
         return null;
     }
 }
