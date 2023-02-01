@@ -26,7 +26,13 @@ public class PhoneBook {
     }
 
     public int findByName(String name) {
-
+        if (names.contains(name)) {
+            return numbers.get(names.indexOf(name));
+        }
         return 0;
+    }
+
+    public void printAllNames() {
+        names.stream().sorted().forEach(System.out::println);
     }
 }

@@ -11,5 +11,11 @@ public class Main {
         System.out.println(phoneBook.findByNumber(2323));
         System.out.println(phoneBook.findByNumber(4545));
         System.out.println(phoneBook.findByNumber(2345));
+
+        System.out.println(phoneBook.findByName("pavel"));
+        System.out.println(phoneBook.findByName("jeca"));
+        System.out.println(phoneBook.findByName("rico"));
+
+        phoneBook.printAllNames();
     }
 }
