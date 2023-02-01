@@ -24,4 +24,9 @@ public class PhoneBook {
         }
         return null;
     }
+
+    public int findByName(String name) {
+
+        return 0;
+    }
 }

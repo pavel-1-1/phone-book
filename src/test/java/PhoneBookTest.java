@@ -27,7 +27,16 @@ public class PhoneBookTest {
 
     @Test
     public void findByNumber_IsNull() {
-        assertNotEquals("rico", 2323);
+        assertNull(bookTest.findByNumber(2345));
     }
 
+    @Test
+    public void findByName() {
+        assertEquals(2323, bookTest.findByName("pavel"));
+    }
+
+    @Test
+    public void findByName_IsNull() {
+        assertEquals(0, bookTest.findByName("rico"));
+    }
 }
