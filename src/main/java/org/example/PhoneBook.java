@@ -1,38 +1,36 @@
 package org.example;
 
-
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Map;
+import java.util.SortedMap;
+import java.util.TreeMap;
 
 public class PhoneBook {
-    private final List<String> names = new ArrayList<>();
-    private final List<Integer> numbers = new ArrayList<>();
+    SortedMap<String, Integer> contacts = new TreeMap<>();
 
-    public boolean add(String name, int number) {
-        if (names.contains(name)) {
-            return false;
-        } else {
-            names.add(name);
-            numbers.add(number);
+    public int add(String name, int number) {
+        if (!contacts.containsKey(name)) {
+            contacts.put(name, number);
+            return contacts.size();
         }
-        return true;
+        System.out.println("there is such a name");
+        return contacts.size();
     }
 
     public String findByNumber(int number) {
-        if (numbers.contains(number)) {
-            return names.get(numbers.indexOf(number));
+        if (contacts.containsValue(number)) {
+            return contacts.entrySet().stream().filter(n -> n.getValue().equals(number)).map(Map.Entry::getKey).findFirst().get();
         }
-        return null;
+        return "null";
     }
 
     public int findByName(String name) {
-        if (names.contains(name)) {
-            return numbers.get(names.indexOf(name));
+        if (contacts.containsKey(name)) {
+            return contacts.get(name);
         }
         return 0;
     }
 
     public void printAllNames() {
-        names.stream().sorted().forEach(System.out::println);
+        contacts.forEach((k, v) -> System.out.println(k + " " + v));
     }
 }

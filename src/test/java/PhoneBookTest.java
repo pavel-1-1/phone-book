@@ -10,14 +10,13 @@ public class PhoneBookTest {
 
     @Before
     public void startAddContact() {
-        bookTest.add("pavel",2323);
+        bookTest.add("pavel", 2323);
         bookTest.add("roma", 4545);
     }
 
     @Test
     public void Add() {
-        boolean actual = bookTest.add("pavel", 2323);
-        assertFalse(actual);
+        assertEquals(2, bookTest.add("pavel", 2323));
     }
 
     @Test
@@ -27,7 +26,7 @@ public class PhoneBookTest {
 
     @Test
     public void findByNumber_IsNull() {
-        assertNull(bookTest.findByNumber(2345));
+        assertEquals("null", bookTest.findByNumber(2345));
     }
 
     @Test
