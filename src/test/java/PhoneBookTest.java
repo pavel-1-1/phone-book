@@ -26,7 +26,7 @@ public class PhoneBookTest {
 
     @Test
     public void findByNumber_IsNull() {
-        assertEquals("null", bookTest.findByNumber(2345));
+        assertEquals(null, bookTest.findByNumber(2345));
     }
 
     @Test

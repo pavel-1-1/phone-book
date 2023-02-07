@@ -1,15 +1,18 @@
 package org.example;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
 public class PhoneBook {
-    SortedMap<String, Integer> contacts = new TreeMap<>();
+    private SortedMap<String, Integer> contacts = new TreeMap<>();
+    private Map<Integer, String> contactsNum = new HashMap<>();
 
     public int add(String name, int number) {
-        if (!contacts.containsKey(name)) {
+        if (!contacts.containsKey(name) && !contactsNum.containsKey(number)) {
             contacts.put(name, number);
+            contactsNum.put(number, name);
             return contacts.size();
         }
         System.out.println("there is such a name");
@@ -17,10 +20,10 @@ public class PhoneBook {
     }
 
     public String findByNumber(int number) {
-        if (contacts.containsValue(number)) {
-            return contacts.entrySet().stream().filter(n -> n.getValue().equals(number)).map(Map.Entry::getKey).findFirst().get();
+        if (contactsNum.containsKey(number)) {
+            return contactsNum.get(number);
         }
-        return "null";
+        return null;
     }
 
     public int findByName(String name) {
